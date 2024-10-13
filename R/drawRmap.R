@@ -44,7 +44,7 @@ drawRmap <- function(location, maptype = "stamen_toner", zoom = 12) {
          paste(valid_maptypes, collapse = ", "))
   }
 
-  if (!is.numeric(zoom) || zoom < 1 || zoom > 20) {
+  if (!is.numeric(zoom) || zoom < 5 || zoom > 18) {
     stop("Invalid zoom value. Please provide a number between 1 and 20.")
   }
 
@@ -66,7 +66,7 @@ drawRmap <- function(location, maptype = "stamen_toner", zoom = 12) {
     stop("The retrieved latitude and longitude are invalid. Please check the input location.")
   }
 
-  bbox_radius <- 0.5  # Adjust the display area size (radius)
+  bbox_radius <- 0.1
   bbox <- c(left = lon - bbox_radius, bottom = lat - bbox_radius,
             right = lon + bbox_radius, top = lat + bbox_radius)
 
@@ -74,15 +74,17 @@ drawRmap <- function(location, maptype = "stamen_toner", zoom = 12) {
                               zoom = zoom,
                               maptype = maptype)
 
-  p <- ggmap(stadia_map) +
+    p <- ggmap(stadia_map) +
     ggtitle(paste("Map of", location)) +
     xlab("Longitude") +
-    ylab("Latitude")
+    ylab("Latitude") +
+    theme(
+      plot.title = element_text(hjust = 0.5, size = 16, face = "bold", color = "#0bbcec"),
+      axis.title.x = element_text(size = 14, face = "bold", color = "#0bbcec"),
+      axis.title.y = element_text(size = 14, face = "bold", color = "#0bbcec"),
+      axis.text.x = element_text(size = 12, color = "#0bbcec"),
+      axis.text.y = element_text(size = 12, color = "#0bbcec")
+    )
 
-  # Add marker point
-  #p <- p + geom_point(aes(x = lon, y = lat), color = "red", size = 5, shape = 19) +
-  #geom_text(aes(x = lon, y = lat, label = location), vjust = -1, color = "red", size = 5)
-
-  # Print the map
   print(p)
 }
