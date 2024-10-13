@@ -2,11 +2,11 @@ Package: CntoAPI
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: A package that allows users to draw maps for specific locations
-    with custom zoom and map type, and includes marking the exact location with a pin.
-License: MIT
+    c(person("Huaide", "liu", , "jcakcino@gmail.com", role = c("aut", "cre")),
+      person("wang", "liao", , "liaowang913@outlook.com", role = "aut"))
+Description: This package provides functions for drawing maps using various map types 
+             and locations, utilizing the Stadia Maps service for rendering.
+License: GPL-2
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
@@ -15,4 +15,5 @@ Imports:
     ggmap,
     ggplot2,
     httr,
-    jsonlite
+    jsonlite,
+    utils
