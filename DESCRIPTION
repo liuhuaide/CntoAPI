@@ -1,5 +1,5 @@
 Package: CntoAPI
-Title: What the Package Does (One Line, Title Case)
+Title: A package connect to API
 Version: 0.0.0.9000
 Authors@R: 
     c(person("Huaide", "liu", , "jcakcino@gmail.com", role = c("aut", "cre")),
