@@ -54,8 +54,11 @@ zoom: Numeric, zoom level, ranging from 1 to 20.
 # Error handling
 
 When calling the drawRmap function, you may encounter some error situations:
+
 An error is thrown if an invalid map type is provided.
+
 If the zoom level provided is not in the range of 1 to 20, an error is thrown.
+
 If the latitude and longitude of the specified location cannot be obtained, an error is thrown.
 
 # Conclusion
