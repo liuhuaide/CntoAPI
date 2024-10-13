@@ -1,0 +1,63 @@
+---
+title: "A_map_drawing_tool_with_DrawRmap"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{A_map_drawing_tool_with_DrawRmap}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+'DrawRmap' is a mapping function that allows the user to obtain the map by specifying the location, map type, and zoom level.
+
+# Load packages
+
+```{r setup}
+install.packages(c("ggmap", "httr", "jsonlite"))
+library(CntoAPI)
+```
+
+# Example: Mapping Asia
+
+```{r drawRmap}
+drawRmap("Asia", maptype = "stamen_toner", zoom = 10)
+```
+
+# Function parameter
+
+The parameters of the drawRmap function are as follows:
+
+location: A string that specifies where to draw the map.
+
+maptype: A string that specifies the type of the map. Valid options include:
+stamen_toner
+stamen_toner_lite
+stamen_watercolor
+stamen_terrain
+stamen_terrain_background
+stamen_terrain_labels
+stamen_terrain_lines
+outdoors
+alidade_smooth
+alidade_smooth_dark
+
+zoom: Numeric, zoom level, ranging from 1 to 20.
+
+# Error handling
+
+When calling the drawRmap function, you may encounter some error situations:
+An error is thrown if an invalid map type is provided.
+If the zoom level provided is not in the range of 1 to 20, an error is thrown.
+If the latitude and longitude of the specified location cannot be obtained, an error is thrown.
+
+# Conclusion
+
+The drawRmap function makes it easy to map the desired location. Adjust the parameters as needed to get different types of maps.
